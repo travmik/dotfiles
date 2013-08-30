@@ -14,6 +14,6 @@ then
 fi
 
 # Install homebrew packages
-brew install grc coreutils spark
+brew install nano tree git git-extras python3 midnight-commander grc
 
 exit 0

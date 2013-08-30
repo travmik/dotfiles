@@ -1,5 +1,15 @@
 // Place user-specific overrides in this file, to ensure they're preserved
 // when upgrading
 {
-  "theme": "Soda Dark.sublime-theme"
+  "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+    "draw_white_space": "selection",
+    "font_size": 13.0,
+    "highlight_modified_tabs": true,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "open_files_in_new_window": false,
+    "show_tab_close_buttons": true,
+    "translate_tabs_to_spaces": true
 }

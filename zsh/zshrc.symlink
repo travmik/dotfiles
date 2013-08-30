@@ -1,8 +1,38 @@
+DEFAULT_USER=travmik
+
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+export ZSH=$HOME/Dropbox/dotfiles/.oh-my-zsh
+
+ZSH_THEME="agnoster"
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/projects
+
+# Set to this to use case-sensitive completion
+CASE_SENSITIVE="true"
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+ COMPLETION_WAITING_DOTS="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(gitfast brew osx mvn lol zsh-syntax-highlighting ant sublime vagrant)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
+export ANT_HOME=~/env/ant
+export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m -Dfile.encoding=UTF-8"
+export MAVEN_HOME=~/env/maven
+export MYSQL_HOME=~/env/mysql
+export JAVA_HOME=~/env/java/Contents/Home
+export JRE_HOME=~/env/jre
+export HOMEBREW_TEMP=/private/tmp
+export PATH=$MYSQL_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$JRE_HOME/bin:$PATH
+
+#added support of utf symbols
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.

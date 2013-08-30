@@ -10,6 +10,14 @@
         helper = GIT_CREDENTIAL_HELPER
 [alias]
         co = checkout
+        ci = commit
+        st = status
+        br = branch
+        df = difftool
+        hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+        type = cat-file -t
+        dump = cat-file -p
+        pulled = log -p --reverse --no-merges --stat @{1}..
         promote = !$ZSH/bin/git-promote
         wtf     = !$ZSH/bin/git-wtf
         rank-contributers = !$ZSH/bin/git-rank-contributers
@@ -20,19 +28,47 @@
         branch = auto
         ui = true
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
+        excludesfile = ~/.gitignore_global
+        autocrlf = input
+        editor = subl -n -w
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        ignorecase = true
+        precomposeunicode = false
+        trustctime = false
 [apply]
         whitespace = nowarn
-[mergetool]
-        keepBackup = false
+[push]
+        default = simple
+[merge]
+        tool = diffmerge
+[diff]
+    tool = diffmerge
+
 [difftool]
         prompt = false
-[help]
-        autocorrect = 1
-[push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to surpress warning message
-        default = simple
+[mergetool]
+    prompt = false
+
+[mergetool "diffmerge"]
+        cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+        trustExitCode = true
+        keepBackup = false
+[difftool "diffmerge"]
+        cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+
+[difftool "stree"]
+        cmd = stree \"$LOCAL\" \"$REMOTE\"
+        path = 
+[mergetool "stree"]
+        cmd = stree \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+        trustExitCode = true
+    
+[difftool "Kaleidoscope"]
+        cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[mergetool "Kaleidoscope"]
+        cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+        trustExitCode = true
