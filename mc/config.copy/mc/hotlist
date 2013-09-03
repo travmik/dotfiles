@@ -1,0 +1,3 @@
+ENTRY "menulet" URL "/Users/travmik/projects/my/menulet/menubar-app"
+ENTRY "EDT" URL "/Users/travmik/projects/EPAM/EDT/trunk/impl"
+ENTRY "JBoss" URL "/Users/travmik/dev/servers/JBoss7/jboss-as-7.1.1.Final"

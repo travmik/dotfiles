@@ -120,8 +120,30 @@ install_dotfiles () {
   done
 }
 
+copy_files () {
+  rsync -aqz $1 $2
+  success "copied $1 to $2"
+}
+
+copy_configs () {
+  for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.copy`
+  do
+    dest="$HOME/.`basename \"${source%.*}\"`"
+
+    if [ -f $dest ] || [ -d $dest ]
+    then
+
+      printf "File already exists: `basename ${source%.*}`"
+      copy_files $source/ $dest
+    fi
+
+  done
+}
+
+
 setup_gitconfig
 install_dotfiles
+copy_configs
 
 # If we are on a mac, lets install and setup homebrew
 if [ "$(uname -s)" == "Darwin" ]
