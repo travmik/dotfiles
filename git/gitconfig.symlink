@@ -67,7 +67,7 @@
         c = commit -m                     # commit with message
         ca = commit -am                   # commit all with message
         ci = commit                       # commit
-        cia = commit --amend            # ammend your last commit
+        cia = commit --amend -C HEAD      # ammend your last commit
         
         # checkout
         co = checkout                     # checkout
