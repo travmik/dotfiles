@@ -135,9 +135,9 @@
         local = yellow
         remote = green
 [color "diff"]
-        meta = yellow bold
+        meta = yellow
         frag = magenta bold
         old = red bold
-        new = green bold
+        new = green
 [format]
         pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
