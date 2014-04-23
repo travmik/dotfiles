@@ -21,7 +21,7 @@
 [apply]
         whitespace = nowarn
 [push]
-        default = simple
+	default = tracking
 [merge]
         tool = diffmerge
 [diff]
@@ -31,14 +31,13 @@
         prompt = false
 [mergetool]
         prompt = false
+	keepBackup = false
 
 [mergetool "diffmerge"]
-        cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
         trustExitCode = true
-        keepBackup = false
 [difftool "diffmerge"]
-        cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
-
+        cmd = diffmerge $LOCAL $REMOTE
 [difftool "stree"]
         cmd = stree \"$LOCAL\" \"$REMOTE\"
         path = 
@@ -50,7 +49,7 @@
         cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [mergetool "Kaleidoscope"]
-        cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+        cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
         trustExitCode = true
 
 [alias]
@@ -65,7 +64,6 @@
         
         # commit
         c = commit -m                     # commit with message
-        ca = commit -am                   # commit all with message
         ci = commit                       # commit
         cia = commit --amend -C HEAD      # ammend your last commit
         
@@ -87,6 +85,7 @@
         short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
         changelog = log --pretty=format:\" * %s\"
         shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+	dt = diff-tree --no-commit-id --name-only -r	
         
         # pull
         pl = pull                         # pull
@@ -113,11 +112,6 @@
         sa = stash apply                  # apply stash (restore changes)
         sd = stash drop                   # drop stashes (destory changes)
         
-        # status
-        s = status                        # status
-        st = status                       # status
-        stat = status                     # status
-        
         # tag
         t = tag -n                        # show tags with <n> lines of each tag message
 
@@ -127,7 +121,10 @@
         promote = !$DOTFILES/bin/git-promote
         wtf     = !$DOTFILES/bin/git-wtf
         rank-contributers = !$DOTFILES/bin/git-rank-contributers
+        brd     = !$DOTFILES/bin/git-branches-by-date
         count   = !git shortlog -sn
+
+	st = status -sb
 [color]
         ui = true
 [color "branch"]

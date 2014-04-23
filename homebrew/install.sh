@@ -14,6 +14,6 @@ then
 fi
 
 # Install homebrew packages
-brew install nano tree git git-extras python3 midnight-commander grc
+brew install nano tree git git-extras python3 midnight-commander grc imagemagick
 
 exit 0

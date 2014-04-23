@@ -30,6 +30,7 @@ export JAVA_HOME=~/env/java/Contents/Home
 export JRE_HOME=~/env/jre
 export HOMEBREW_TEMP=/private/tmp
 export PATH=$MYSQL_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$JRE_HOME/bin:$PATH
+export GROOVY_HOME=$GROOVY_HOME:/usr/local/Cellar/groovy/2.1.1/libexec
 
 #added support of utf symbols
 export LC_ALL=en_US.UTF-8
