@@ -12,7 +12,7 @@
         autocrlf = input
         editor = subl -n -w
         repositoryformatversion = 0
-        filemode = false
+	fileMode = false
         bare = false
         logallrefupdates = true
         ignorecase = true
@@ -21,7 +21,9 @@
 [apply]
         whitespace = nowarn
 [push]
-	default = tracking
+	default = simple
+[pull]
+        default = simple
 [merge]
         tool = diffmerge
 [diff]
@@ -38,6 +40,7 @@
         trustExitCode = true
 [difftool "diffmerge"]
         cmd = diffmerge $LOCAL $REMOTE
+
 [difftool "stree"]
         cmd = stree \"$LOCAL\" \"$REMOTE\"
         path = 
@@ -47,10 +50,34 @@
     
 [difftool "Kaleidoscope"]
         cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-
 [mergetool "Kaleidoscope"]
         cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
         trustExitCode = true
+
+[mergetool "opendiff"]
+    cmd = opendiff "$LOCAL" "$REMOTE" -merge "$MERGED" -ancestor "$BASE"
+    trustExitCode = true
+[difftool "opendiff"]
+    cmd = opendiff "$LOCAL" "$REMOTE"
+
+[difftool "kdiff3"]
+    path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+    trustExitCode = false
+[mergetool "kdiff3"]
+    path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+    trustExitCode = false
+[mergetool "p4merge"]
+  cmd = /Applications/p4merge.app/Contents/MacOS/p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+  keepTemporaries = false
+  trustExitCode = false
+  keepBackup = false
+[difftool "p4merge"]
+  cmd = /Applications/p4merge.app/Contents/MacOS/p4merge "$LOCAL" "$REMOTE"
+
+[mergetool "intellij"]
+     cmd = /Applications/IntelliJ\\ IDEA\\ 12.app/Contents/MacOS/idea merge $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\") $(cd $(dirname \"$BASE\") && pwd)/$(basename \"$BASE\") $(cd $(dirname \"$MERGED\") && pwd)/$(basename \"$MERGED\")
+[difftool "intellij"]
+    cmd = /Applications/IntelliJ\\ IDEA\\ 12\\.app/Contents/MacOS/idea diff $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\")
 
 [alias]
         df = difftool

@@ -21,16 +21,7 @@ plugins=(gitfast brew osx mvn lol zsh-syntax-highlighting ant sublime vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export ANT_HOME=~/env/ant
-export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m -Dfile.encoding=UTF-8"
-export MAVEN_HOME=~/env/maven
-export MYSQL_HOME=~/env/mysql
-export JAVA_HOME=~/env/java/Contents/Home
-export JRE_HOME=~/env/jre
-export HOMEBREW_TEMP=/private/tmp
-export PATH=$MYSQL_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$JRE_HOME/bin:$PATH
-export GROOVY_HOME=$GROOVY_HOME:/usr/local/Cellar/groovy/2.1.1/libexec
+
 
 #added support of utf symbols
 export LC_ALL=en_US.UTF-8
