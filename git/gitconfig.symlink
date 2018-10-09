@@ -3,14 +3,16 @@
 [hub]
         protocol = https
 [user]
-        name = travmik
-        email = travmik@gmail.com
+        # name = travmik
+        # email = travmik@gmail.com
+        name = Stanislav Parfenyuk
+        email = Stanislav_Parfenyuk@epam.com
 [credential]
         helper = osxkeychain
 [core]
         excludesfile = ~/.gitignore_global
         autocrlf = input
-        editor = subl -n -w
+	editor = atom --wait
         repositoryformatversion = 0
 	fileMode = false
         bare = false
