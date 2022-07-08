@@ -4,13 +4,13 @@ export PATH="/bin:/usr/local/bin:/usr/local/sbin:$DOTFILES/bin:$PATH"
 # export ANT_HOME=/Users/travmik/projects/EPAM/ATMO/hybris/bin/platform/apache-ant-1.8.2/
 export ANT_HOME=/Users/travmik/projects/EPAM/ATMO/hybris5/bin/platform/apache-ant-1.9.1
 export ANT_OPTS="-Xmx1536m -XX:MaxPermSize=4096m"
-export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m -Dfile.encoding=UTF-8"
-export MAVEN_HOME=~/env/maven/libexec
-export M2_HOME=~/env/maven/libexec
-export GRADLE_HOME=~/env/gradle/libexec
+# export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m -Dfile.encoding=UTF-8"
+export MAVEN_HOME=/usr/local/Cellar/maven/3.8.2/libexec
+#export M2_HOME=~/env/maven/libexec
+export GRADLE_HOME=/usr/local/Cellar/gradle/5.3.1/libexec
 export MYSQL_HOME=~/env/mysql
 # export JAVA_HOME=~/env/java/Contents/Home
-export JAVA_HOME=~/env/java8/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/applejdk-11.0.12.7.1.jdk/Contents/Home/
 export JRE_HOME=$JAVA_HOME/jre
 export HOMEBREW_TEMP=/private/tmp
 export PATH=$MYSQL_HOME/bin:$MAVEN_HOME/bin:$GRADLE_HOME/bin:$ANT_HOME/bin:$JRE_HOME/bin:$PATH
@@ -23,5 +23,7 @@ export ATMO_HYBRIS_HOME=/Users/travmik/projects/EPAM/ATMO/hybris4
 export HYBRIS_HOME=/Users/travmik/projects/EPAM/ATMO/hybris4
 export FGL_HOME=/Users/travmik/projects/EPAM/ATMO/atmo-ecom
 
-
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
+#Go variables
+export GOPATH=$HOME/Projects/sandbox/go

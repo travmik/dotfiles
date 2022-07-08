@@ -1,10 +1,11 @@
-DEFAULT_USER=travmik
+# DEFAULT_USER=travmik
 
 # shortcut to this dotfiles path is $ZSH
 export DOTFILES=$HOME/Dropbox/dotfiles
 export ZSH=$DOTFILES/zsh/oh-my-zsh
 
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="agnoster"
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/projects
@@ -61,3 +62,13 @@ do
 done
 
 # unset config_files
+
+# Theme: powerlevel9k
+## https://github.com/bhilburn/powerlevel9k
+# Context
+POWERLEVEL9K_ALWAYS_SHOW_USER=true
+POWERLEVEL9K_CONTEXT_TEMPLATE=""
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context dir_writable dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

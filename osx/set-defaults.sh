@@ -8,14 +8,14 @@
 # Run ./set-defaults.sh and you'll be good to go.
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "Regina"
-sudo scutil --set HostName "Regina"
-sudo scutil --set LocalHostName "Regina"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Regina"
+# sudo scutil --set ComputerName "Regina II"
+# sudo scutil --set HostName "Regina II"
+# sudo scutil --set LocalHostName "Regina II"
+# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Regina"
 
 # Set standby delay and auto power off to 12 hours (default is 1 hour)
-sudo pmset -a standbydelay 43200
-sudo pmset -a autopoweroffdelay 43200
+# sudo pmset -a standbydelay 43200
+# sudo pmset -a autopoweroffdelay 43200
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
@@ -59,7 +59,7 @@ defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.Web
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 #disable message: “the disk was not ejected properly”?
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.UserNotificationCenter.plist
+#sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.UserNotificationCenter.plist
 
 #Disable DMG validation on mount
 defaults write com.apple.frameworks.diskimages skip-verify TRUE
@@ -74,7 +74,7 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 #Spell check in all apps
-defaults write -g WebContinuousSpellCheckingEnabled -bool TRUE 
+defaults write -g WebContinuousSpellCheckingEnabled -bool TRUE
 defaults write -g WebAutomaticTextReplacementEnabled -bool TRUE
 
 #Disable TM Local Backup Storage
